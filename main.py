@@ -3,6 +3,7 @@ import sys
 from settings import *
 from map import *
 from player import *
+from raycasting import *
 
 
 class Game:
@@ -16,15 +17,16 @@ class Game:
     def new_game(self):
         self.map = Map(self)
         self.player = Player(self)
+        self.raycasting = RayCasting(self)
 
     def update(self):
         self.player.update()
+        self.raycasting.update()
         pg.display.flip()
-        # Set FPS to 60 from settings
-        # Set Delta time (this helps with actions during the game)
+        # Set Delta time. Actions in the game will flow independently of fps
         self.delta_time = self.clock.tick(FPS)
         # Get and display FPS on Title Bar
-        pg.display.set_caption(f'{self.clock.get_fps() :.1f}')
+        pg.display.set_caption(f'{self.clock.get_fps():.1f}')
 
     def draw(self):
         self.screen.fill('black')
