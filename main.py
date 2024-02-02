@@ -9,7 +9,7 @@ from raycasting import *
 class Game:
     def __init__(self):
         pg.init()
-        self.screen = pg.display.set_mode(RESOLUTION)
+        self.screen = pg.display.set_mode(RESOLUTION)   # Set Resolution
         self.clock = pg.time.Clock()
         self.delta_time = 1
         self.new_game()
@@ -30,8 +30,6 @@ class Game:
 
     def draw(self):
         self.screen.fill('black')
-        self.map.draw()
-        self.player.draw()
 
     # Check for events in the app. Such as quiting the game
     def check_events(self):
