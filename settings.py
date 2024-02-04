@@ -1,5 +1,6 @@
 import math
 # Game Settings
+FLOOR_COLOR = (30, 30, 30)
 
 # Video Settings
 RESOLUTION = WIDTH, HEIGHT = 1600, 900
@@ -10,8 +11,16 @@ FPS = 60
 # Player initial Position
 PLAYER_POS = 1.5, 5
 PLAYER_ANGLE = 0
-PLAYER_SPEED = 0.004
+PLAYER_SPEED = 0.003
 PLAYER_ROT_SPEED = 0.002
+# Player Scaling
+PLAYER_SIZE_SCALE = 60
+
+# Mouse Settings
+MOUSE_SENSITIVITY = 0.0001
+MOUSE_MAX_REL = 40
+MOUSE_BORDER_LEFT = 100
+MOUSE_BORDER_RIGHT = WIDTH - MOUSE_BORDER_LEFT
 
 # Raycast Settings
 FOV = math.pi / 3
@@ -24,3 +33,7 @@ MAX_DEPTH = 20
 # Calculations for 3D Rendering
 SCREEN_DIST = HALF_WIDTH / math.tan(HALF_FOV)
 SCALE = WIDTH / NUM_RAYS
+
+# Textures Settings
+TEXTURE_SIZE = 256
+HALF_TEXTURE_SIZE = TEXTURE_SIZE // 2
