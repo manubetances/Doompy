@@ -8,6 +8,7 @@ class Player:
         self.game = game
         self.x, self.y = PLAYER_POS
         self.angle = PLAYER_ANGLE
+        self.shot = False
 
     def movement(self):
         sin_a = math.sin(self.angle)
@@ -32,6 +33,13 @@ class Player:
             dy += speed_cos
 
         self.check_wall_collision(dx, dy)
+
+    def single_fire_event(self, event):
+        if event.type == pg.MOUSEBUTTONDOWN:
+            if event.button == 1 and not self.shot and not self.game.weapon.reloading:
+                self.game.sound.shotgun.play()
+                self.shot = True
+                self.game.weapon.reloading = True
 
     def check_wall(self, x, y):
         return (x, y) not in self.game.map.world_map
